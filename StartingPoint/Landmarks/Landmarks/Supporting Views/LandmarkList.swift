@@ -10,8 +10,13 @@ import SwiftUI
 
 struct LandmarkList: View {
     var body: some View {
-        List(landmarkData/*,id: \.id /* Only can remove this if class contain Identifiable */ */) { landmark in
-            LandmarkRow(landMark: landmark)
+        NavigationView{
+            List(landmarkData/*,id: \.id /* Only can remove this if class contain Identifiable */ */) { landmark in
+                NavigationLink(destination:LandmarkDetail()){
+                    LandmarkRow(landMark: landmark)
+                }
+            }
+            .navigationBarTitle(Text("Landmarks"))
         }
     }
 }
