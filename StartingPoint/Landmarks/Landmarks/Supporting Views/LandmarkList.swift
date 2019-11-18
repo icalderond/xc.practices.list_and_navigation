@@ -23,6 +23,14 @@ struct LandmarkList: View {
 
 struct LandmarkList_Previews: PreviewProvider {
     static var previews: some View {
-        LandmarkList()
+        
+        ForEach(["iPhone SE","iPhone XS Max"],id: \.self){ deviceName in
+            /* When the elements of your data are simple value types — like the strings you’re using here — you can use \.self as key path to the identifier. */
+            
+            LandmarkList()
+                //.previewDevice(PreviewDevice(rawValue: "iPhone SE"))
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+        }
     }
 }
