@@ -12,7 +12,7 @@ struct LandmarkList: View {
     var body: some View {
         NavigationView{
             List(landmarkData/*,id: \.id /* Only can remove this if class contain Identifiable */ */) { landmark in
-                NavigationLink(destination:LandmarkDetail()){
+                NavigationLink(destination:LandmarkDetail(landmark: landmark)){
                     LandmarkRow(landMark: landmark)
                 }
             }
